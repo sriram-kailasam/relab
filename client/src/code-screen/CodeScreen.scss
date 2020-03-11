@@ -1,0 +1,34 @@
+.rl-code-screen {
+  display: flex;
+  min-height: 100vh;
+}
+
+.rl-question-card {
+  flex: 3;
+  margin: 10px;
+}
+
+.rl-code-section {
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+}
+
+.rl-code-card {
+  flex: 8;
+  // height: 100vh;
+  margin: 10px;
+}
+
+.rl-execute-card {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 2;
+  margin: 10px;
+
+  .rl-button {
+    flex: 1;
+    margin: 10px;
+  }
+}
