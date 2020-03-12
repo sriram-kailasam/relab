@@ -1,10 +1,22 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React, { HTMLAttributes } from "react";
+import classNames from "classnames";
 import "./Button.scss";
 
-export const Button: React.FC<React.ComponentProps<"button">> = props => {
+interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  buttonStyle: "success" | "normal";
+}
+
+export const Button: React.FC<ButtonProps> = props => {
   return (
-    <button className="rl-button" onClick={props.onClick}>
-      {props.value}
+    <button
+      className={classNames({
+        "rl-button": true,
+        "rl-button-success": props.buttonStyle === "success",
+        "rl-button-normal": props.buttonStyle === "normal"
+      })}
+      onClick={props.onClick}
+    >
+      {props.children}
     </button>
   );
 };

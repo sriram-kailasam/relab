@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card } from "../components/card";
 import CodeEditor from "../components/CodeEditor";
 import "./CodeScreen.scss";
 import { Button } from "../components/button";
+import { TabLayout } from "../components/tab-layout";
 
+const Stdin = () => {
+  return (
+    <div className="rl-stdin">
+      <textarea cols={100} rows={10}></textarea>
+    </div>
+  );
+};
 export const CodeScreen = () => {
+  const [outputVisible, setOutputVisible] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setOutputVisible(true);
+    }, 0);
+  }, []);
+
   return (
     <div className="rl-code-screen">
       <Card className="rl-question-card">
@@ -21,8 +36,22 @@ export const CodeScreen = () => {
           <CodeEditor></CodeEditor>
         </Card>
         <Card className="rl-execute-card">
-          <Button value="Submit" onClick={() => {}} />
-          <Button value="Submit" onClick={() => {}} />
+          {outputVisible && (
+            <div className="rl-output-section">
+              <TabLayout
+                titles={["STDIN", "STDOUT"]}
+                components={[<Stdin />]}
+              ></TabLayout>
+            </div>
+          )}{" "}
+          <div className="rl-execute-buttons">
+            <Button onClick={() => {}} buttonStyle="normal">
+              Execute
+            </Button>
+            <Button onClick={() => {}} buttonStyle="success">
+              Submit
+            </Button>
+          </div>
         </Card>
       </div>
     </div>

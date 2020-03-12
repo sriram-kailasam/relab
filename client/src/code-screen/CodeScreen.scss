@@ -1,6 +1,7 @@
 .rl-code-screen {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  flex: 0;
 }
 
 .rl-question-card {
@@ -12,23 +13,35 @@
   flex: 7;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  transition: 0.3s;
 }
 
 .rl-code-card {
   flex: 8;
-  // height: 100vh;
+  flex-shrink: 3;
   margin: 10px;
 }
 
 .rl-execute-card {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   flex: 2;
   margin: 10px;
 
-  .rl-button {
-    flex: 1;
-    margin: 10px;
+  .rl-execute-buttons {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+
+    .rl-button {
+      flex: 1;
+      margin: 10px;
+    }
   }
+}
+
+.rl-stdin {
+  resize: none;
 }
