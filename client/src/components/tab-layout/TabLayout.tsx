@@ -18,6 +18,7 @@ export const TabLayout: React.FC<TabLayoutProps> = props => {
       <div className="rl-titles">
         {props.titles.map((title, index) => (
           <h3
+            key={index}
             className={classNames({
               "rl-title": true,
               "rl-selected": index === selectedIndex
