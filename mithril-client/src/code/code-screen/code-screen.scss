@@ -1,0 +1,47 @@
+.rl-code-screen {
+  display: flex;
+  height: 100vh;
+  flex: 0;
+}
+
+.rl-question-card {
+  flex: 3;
+  margin: 10px;
+}
+
+.rl-code-section {
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: 0.3s;
+}
+
+.rl-code-card {
+  flex: 8;
+  flex-shrink: 3;
+  margin: 10px;
+}
+
+.rl-execute-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 2;
+  margin: 10px;
+
+  .rl-execute-buttons {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+
+    .rl-button {
+      flex: 1;
+      margin: 10px;
+    }
+  }
+}
+
+.rl-stdin {
+  resize: none;
+}
