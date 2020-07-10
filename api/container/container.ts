@@ -13,6 +13,7 @@ export async function buildImage(imageName: string = DEFAULT_IMAGE_NAME) {
 
 export async function executeInContainer(
   cmd: string[],
+  binds: string[],
   stdinString: string = "",
   imageName: string = DEFAULT_IMAGE_NAME
 ) {
@@ -21,6 +22,9 @@ export async function executeInContainer(
   const container = await docker.createContainer({
     Image: imageName,
     Cmd: cmd,
+    HostConfig: {
+      Binds: binds,
+    },
     AttachStderr: true,
     AttachStdin: true,
     AttachStdout: true,
