@@ -14,13 +14,13 @@ export class ExecutionController {
     }
 
     try {
-      const { stdout, stderr } = await codeRunner.run(body.code, body.stdin);
+      const { output } = await codeRunner.run(body.code, body.stdin);
       res.json({
         success: true,
-        stdout,
-        stderr,
+        output,
       });
     } catch (err) {
+      console.error(err);
       res.json({ success: false, error: err });
     }
   };

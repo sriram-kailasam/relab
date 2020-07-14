@@ -1,9 +1,8 @@
-export type CodeOutput = {
+export type ExecutionOutput = {
   exitCode: number;
-  stdout: string;
-  stderr: string;
+  output: string;
 };
 
 export interface CodeRunner {
-  run(code: string, stdin: string): Promise<CodeOutput>;
+  run(code: string, stdin: string): Promise<ExecutionOutput>;
 }

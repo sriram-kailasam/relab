@@ -29,6 +29,7 @@ occaecat. Duis id eiusmod Lorem duis.`;
 export default function CodeScreen(): m.Component {
   let stdin = "";
   let language = "javascript";
+  let output;
 
   let editor: monaco.editor.IStandaloneCodeEditor;
   const editorModel = monaco.editor.createModel("");
@@ -39,7 +40,7 @@ export default function CodeScreen(): m.Component {
 
   async function handleExecute() {
     const code = editorModel.getValue();
-    const output = await getOutput(code, stdin, language);
+    output = await getOutput(code, stdin, language);
     console.log("output", output);
   }
 
@@ -76,7 +77,10 @@ export default function CodeScreen(): m.Component {
               ".rl-output-section",
               m(TabLayout, {
                 titles: ["stdin", "stdout", "stderr"],
-                components: [m(Stdin, { oninput: handleStdinInput })],
+                components: [
+                  m(Stdin, { oninput: handleStdinInput }),
+                  m("div", output ? output.output : ""),
+                ],
                 initialIndex: 0,
               })
             ),
